@@ -1,0 +1,394 @@
+/* =============================================
+   TABLET (768px - 1024px)
+   ============================================= */
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 7vw, 4rem);
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
+
+    .nav-menu {
+        gap: 1.5rem;
+    }
+
+    .services-grid,
+    .team-grid,
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* =============================================
+   MOBILE (480px - 768px)
+   ============================================= */
+
+@media (max-width: 768px) {
+    /* HEADER */
+    .header {
+        height: 70px;
+    }
+
+    .navbar {
+        height: 70px;
+    }
+
+    .brand-name {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        z-index: 200;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(17, 17, 17, 0.98);
+        gap: 0;
+        padding: 2rem;
+        transition: left 0.3s ease;
+        border-bottom: 1px solid var(--border-light);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .btn-nav {
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    /* HERO */
+    .hero-section {
+        min-height: 80vh;
+    }
+
+    .hero-title {
+        font-size: clamp(1.75rem, 5vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+        gap: 1rem;
+    }
+
+    .btn-lg {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* SECTIONS */
+    .section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        margin-bottom: 1rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* CARDS */
+    .stat-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .stat-icon {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        flex-direction: column;
+    }
+
+    .service-image {
+        height: 200px;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-section h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* SCROLL TOP */
+    .scroll-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+        min-height: 300px;
+    }
+
+    .page-title {
+        font-size: clamp(2rem, 5vw, 2.5rem);
+    }
+
+    .page-subtitle {
+        font-size: 1.05rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-content {
+        order: 2;
+    }
+
+    .about-image {
+        order: 1;
+    }
+
+    /* FORMS */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .reservation-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+}
+
+/* =============================================
+   SMALL MOBILE (320px - 480px)
+   ============================================= */
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* HEADER */
+    .brand-name {
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* HERO */
+    .hero-scroll {
+        display: none;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    /* TEXT */
+    h1 {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    h2 {
+        font-size: clamp(1.25rem, 3vw, 1.75rem);
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+        min-height: 250px;
+        padding: 2rem 0;
+    }
+
+    .page-title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+        gap: 0.5rem;
+    }
+
+    /* CARDS */
+    .service-card {
+        padding: 1.25rem;
+    }
+
+    .stat-card {
+        padding: 1rem 0.75rem;
+    }
+
+    .stat-icon {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    /* CTA */
+    .cta-section {
+        padding: 3rem 0;
+    }
+
+    .cta-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .cta-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* FORMS */
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+
+    .footer-section h4 {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-section li {
+        font-size: 0.85rem;
+    }
+
+    /* SCROLL TOP */
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* =============================================
+   LANDSCAPE MOBILE
+   ============================================= */
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100%;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .page-header {
+        min-height: auto;
+        padding: 2rem 0;
+    }
+
+    .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-description {
+        margin-bottom: 1rem;
+    }
+}
+
+/* =============================================
+   EXTRA LARGE SCREENS (1400px+)
+   ============================================= */
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

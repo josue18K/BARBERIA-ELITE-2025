@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - BARBERÍA ÉLITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-premium.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <div class="logo-icon">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h2 class="brand-name">BARBERÍA ÉLITE</h2>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="inicio.html" class="nav-link active">Inicio</a></li>
+                    <li><a href="Sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    <li><a href="contacto.html#reservar" class="btn btn-primary btn-nav">Reservar Cita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg parallax" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1080&fit=crop');"></div>
+        
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-title">
+                    <span class="title-line">BARBERÍA</span>
+                    <span class="title-line title-emphasis">ÉLITE</span>
+                </h1>
+                <p class="hero-subtitle">Estilo. Precisión. Confianza.</p>
+                <p class="hero-description">
+                    Donde la tradición clásica se encuentra con la innovación moderna. 
+                    Experimenta el arte del grooming excepcional.
+                </p>
+                <div class="hero-buttons">
+                    <a href="contacto.html#reservar" class="btn btn-primary btn-lg">
+                        <span>Agendar Cita</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                    <a href="servicios.html" class="btn btn-outline btn-lg">
+                        <span>Ver Servicios</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-scroll">
+                <span class="scroll-text">Desliza</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card fade-in-up" data-delay="100">
+                    <span class="material-symbols-outlined stat-icon">workspace_premium</span>
+                    <h3 class="stat-number" data-count="15">0</h3>
+                    <p class="stat-label">Años de Experiencia</p>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="200">
+                    <span class="material-symbols-outlined stat-icon">groups</span>
+                    <h3 class="stat-number" data-count="5000">0</h3>
+                    <p class="stat-label">Clientes Satisfechos</p>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="300">
+                    <span class="material-symbols-outlined stat-icon">emoji_events</span>
+                    <h3 class="stat-number" data-count="8">0</h3>
+                    <p class="stat-label">Premios Ganados</p>
+                </div>
+                <div class="stat-card fade-in-up" data-delay="400">
+                    <span class="material-symbols-outlined stat-icon">star</span>
+                    <h3 class="stat-number" data-count="4.9">0</h3>
+                    <p class="stat-label">Calificación Promedio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services Preview -->
+    <section class="preview-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Lo Que Hacemos Mejor</span>
+                <h2 class="section-title">Servicios Destacados</h2>
+                <p class="section-description">
+                    Descubre la excelencia en cada servicio que ofrecemos
+                </p>
+            </div>
+
+            <div class="services-preview-grid">
+                <div class="service-preview-card fade-in-up">
+                    <div class="service-preview-image">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop" alt="Corte Clásico">
+                        <div class="service-preview-overlay">
+                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="service-preview-content">
+                        <h3>Corte Clásico</h3>
+                        <p>Precisión atemporal ejecutada por maestros barberos</p>
+                        <span class="service-price">S/. 30.00</span>
+                    </div>
+                </div>
+
+                <div class="service-preview-card fade-in-up" data-delay="100">
+                    <div class="service-preview-image">
+                        <img src="https://images.unsplash.com/photo-1622286346003-c96b5d53e2cb?w=600&h=400&fit=crop" alt="Afeitado Tradicional">
+                        <div class="service-preview-overlay">
+                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="service-preview-content">
+                        <h3>Afeitado Tradicional</h3>
+                        <p>El ritual clásico con toalla caliente y navaja</p>
+                        <span class="service-price">S/. 40.00</span>
+                    </div>
+                </div>
+
+                <div class="service-preview-card fade-in-up" data-delay="200">
+                    <div class="service-preview-image">
+                        <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&h=400&fit=crop" alt="Corte Premium">
+                        <div class="service-preview-overlay">
+                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                        </div>
+                    </div>
+                    <div class="service-preview-content">
+                        <h3>Corte Premium</h3>
+                        <p>Experiencia completa con masaje y productos de lujo</p>
+                        <span class="service-price">S/. 50.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="servicios.html" class="btn btn-primary">Ver Todos los Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content text-center fade-in-up">
+                <h2 class="cta-title">¿Listo Para Tu Mejor Look?</h2>
+                <p class="cta-description">
+                    Agenda tu cita hoy y experimenta la diferencia de un servicio de clase mundial
+                </p>
+                <a href="contacto.html#reservar" class="btn btn-white btn-lg">
+                    <span>Reservar Ahora</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3>BARBERÍA ÉLITE</h3>
+                    </div>
+                    <p class="footer-description">
+                        Tradición y vanguardia fusionadas para crear el estilo perfecto del caballero moderno.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="material-symbols-outlined">facebook</span>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp">
+                            <span class="material-symbols-outlined">chat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="inicio.html">Inicio</a></li>
+                        <li><a href="Sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <ul class="footer-info">
+                        <li>Lunes - Viernes: 9:00 AM - 9:00 PM</li>
+                        <li>Sábado: 9:00 AM - 8:00 PM</li>
+                        <li>Domingo: Cerrado</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-info">
+                        <li>
+                            <span class="material-symbols-outlined">location_on</span>
+                            Calle Principal 123, Miraflores – Lima
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">phone</span>
+                            999 888 777
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">mail</span>
+                            info@barberiaelite.pe
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BARBERÍA ÉLITE. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navegacion.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

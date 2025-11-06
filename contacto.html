@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - BARBERÍA ÉLITE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles-premium.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <div class="logo-icon">
+                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h2 class="brand-name">BARBERÍA ÉLITE</h2>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="inicio.html" class="nav-link">Inicio</a></li>
+                    <li><a href="Sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                    <li><a href="contacto.html#reservar" class="btn btn-primary btn-nav">Reservar Cita</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container">
+            <div class="page-header-content fade-in-up">
+                <h1 class="page-title">Contacto</h1>
+                <p class="page-subtitle">Estamos Listos Para Atenderte</p>
+                <div class="breadcrumb">
+                    <a href="inicio.html">Inicio</a>
+                    <span>/</span>
+                    <span>Contacto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-card fade-in-up">
+                    <div class="contact-icon">
+                        <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <h3>Dirección</h3>
+                    <p>Calle Principal 123<br/>Miraflores – Lima, Perú</p>
+                    <a href="https://maps.google.com" target="_blank" class="contact-link">Ver en Mapa</a>
+                </div>
+
+                <div class="contact-info-card fade-in-up" data-delay="100">
+                    <div class="contact-icon">
+                        <span class="material-symbols-outlined">phone</span>
+                    </div>
+                    <h3>Teléfono</h3>
+                    <p>999 888 777</p>
+                    <a href="tel:+51999888777" class="contact-link">Llamar Ahora</a>
+                </div>
+
+                <div class="contact-info-card fade-in-up" data-delay="200">
+                    <div class="contact-icon">
+                        <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <h3>Email</h3>
+                    <p>info@barberiaelite.pe</p>
+                    <a href="mailto:info@barberiaelite.pe" class="contact-link">Enviar Email</a>
+                </div>
+
+                <div class="contact-info-card fade-in-up" data-delay="300">
+                    <div class="contact-icon">
+                        <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                    <h3>Horario</h3>
+                    <p>Lunes - Sábado<br/>9:00 AM – 9:00 PM</p>
+                    <span class="contact-link contact-status">Abierto Ahora</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form Section -->
+    <section class="reservation-section" id="reservar">
+        <div class="container">
+            <div class="reservation-grid">
+                <div class="reservation-info fade-in-left">
+                    <span class="section-label">Agenda Tu Cita</span>
+                    <h2 class="section-title">Reserva Online</h2>
+                    <p class="reservation-description">
+                        Completa el formulario y nos pondremos en contacto contigo para confirmar 
+                        tu reserva. También puedes llamarnos directamente al 999 888 777.
+                    </p>
+
+                    <div class="reservation-benefits">
+                        <div class="benefit-item">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <span>Confirmación inmediata</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <span>Recordatorio por WhatsApp</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <span>Cambios gratuitos hasta 2 horas antes</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            <span>Atención prioritaria</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-direct">
+                        <p><strong>¿Prefieres contactarnos directamente?</strong></p>
+                        <div class="contact-buttons">
+                            <a href="tel:+51999888777" class="btn btn-outline">
+                                <span class="material-symbols-outlined">phone</span>
+                                Llamar
+                            </a>
+                            <a href="https://wa.me/51999888777" target="_blank" class="btn btn-outline">
+                                <span class="material-symbols-outlined">chat</span>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reservation-form-container fade-in-right">
+                    <form class="reservation-form" id="reservationForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="999 888 777">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="servicio">Servicio *</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="corte-clasico">Corte Clásico - S/. 30</option>
+                                <option value="afeitado-tradicional">Afeitado Tradicional - S/. 40</option>
+                                <option value="diseno-barba">Diseño de Barba - S/. 25</option>
+                                <option value="corte-premium">Corte Premium - S/. 50</option>
+                                <option value="coloracion">Coloración - S/. 60</option>
+                                <option value="facial-express">Facial Express - S/. 35</option>
+                                <option value="combo-completo">Combo Completo - S/. 70</option>
+                                <option value="corte-ninos">Corte para Niños - S/. 20</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="barbero">Barbero (Opcional)</label>
+                            <select id="barbero" name="barbero">
+                                <option value="">Sin preferencia</option>
+                                <option value="carlos">Carlos Mendoza</option>
+                                <option value="miguel">Miguel Torres</option>
+                                <option value="javier">Javier Ruiz</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fecha">Fecha *</label>
+                                <input type="date" id="fecha" name="fecha" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hora">Hora *</label>
+                                <select id="hora" name="hora" required>
+                                    <option value="">Selecciona hora</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="13:00">01:00 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                    <option value="18:00">06:00 PM</option>
+                                    <option value="19:00">07:00 PM</option>
+                                    <option value="20:00">08:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Comentarios Adicionales</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Algún detalle especial que debamos saber?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <span>Confirmar Reserva</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+
+                        <p class="form-note">
+                            Al enviar este formulario, aceptas recibir confirmaciones y recordatorios por WhatsApp o email.
+                        </p>
+                    </form>
+
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <span class="material-symbols-outlined success-icon">check_circle</span>
+                        <h3>¡Reserva Recibida!</h3>
+                        <p>
+                            Gracias por tu reserva. Nos pondremos en contacto contigo pronto 
+                            para confirmar tu cita.
+                        </p>
+                        <button class="btn btn-primary" onclick="resetForm()">Nueva Reserva</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.3154678556805!2d-77.02868668573468!3d-12.119831791436098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7f1c0f3f3b3%3A0x3e5b0c0f3f3f3f3f!2sMiraflores%2C%20Lima!5e0!3m2!1sen!2spe!4v1635789012345!5m2!1sen!2spe" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3>BARBERÍA ÉLITE</h3>
+                    </div>
+                    <p class="footer-description">
+                        Tradición y vanguardia fusionadas para crear el estilo perfecto del caballero moderno.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <span class="material-symbols-outlined">facebook</span>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="WhatsApp">
+                            <span class="material-symbols-outlined">chat</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="inicio.html">Inicio</a></li>
+                        <li><a href="Sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Horarios</h4>
+                    <ul class="footer-info">
+                        <li>Lunes - Viernes: 9:00 AM - 9:00 PM</li>
+                        <li>Sábado: 9:00 AM - 8:00 PM</li>
+                        <li>Domingo: Cerrado</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul class="footer-info">
+                        <li>
+                            <span class="material-symbols-outlined">location_on</span>
+                            Calle Principal 123, Miraflores – Lima
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">phone</span>
+                            999 888 777
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined">mail</span>
+                            info@barberiaelite.pe
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 BARBERÍA ÉLITE. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navegacion.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
