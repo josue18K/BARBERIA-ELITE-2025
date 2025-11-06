@@ -1,79 +1,61 @@
 // =============================================
-// FORM HANDLER - RESERVATIONS
+// ADVANCED FORM HANDLER
 // =============================================
 
-class FormHandler {
+class AdvancedFormHandler {
     constructor() {
-        this.form = document.getElementById('reservationForm');
-        this.formSuccess = document.getElementById('formSuccess');
-        if (this.form) {
-            this.init();
-        }
+        this.reservationForm = document.getElementById('reservationForm');
+        this.contactForm = document.getElementById('contactForm');
+        this.newsletterForm = document.getElementById('newsletterForm');
+        this.faqItems = document.querySelectorAll('.faq-item');
+        
+        this.init();
     }
 
     init() {
-        this.setupEventListeners();
-        this.setupFormValidation();
+        this.setupFormListeners();
+        this.setupFAQ();
+        this.setMinDate();
+        this.setupCharCounters();
     }
 
-    setupEventListeners() {
-        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    }
-
-    setupFormValidation() {
-        const inputs = this.form.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('change', () => this.validateField(input));
-            input.addEventListener('blur', () => this.validateField(input));
-        });
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        // Validate all fields
-        const inputs = this.form.querySelectorAll('input, select, textarea');
-        let isValid = true;
-
-        inputs.forEach(input => {
-            if (!this.validateField(input)) {
-                isValid = false;
-            }
-        });
-
-        if (!isValid) {
-            Logger.warn('Formulario no válido');
-            return;
+    setupFormListeners() {
+        if (this.reservationForm) {
+            this.reservationForm.addEventListener('submit', (e) => this.handleReservation(e));
+            this.setupReservationValidation();
         }
 
-        // Collect form data
-        const formData = new FormData(this.form);
-        const data = Object.fromEntries(formData);
+        if (this.contactForm) {
+            this.contactForm.addEventListener('submit', (e) => this.handleContactForm(e));
+            this.setupContactValidation();
+        }
 
-        // Log data
-        Logger.log('Formulario enviado', data);
+        if (this.newsletterForm) {
+            this.newsletterForm.addEventListener('submit', (e) => this.handleNewsletter(e));
+        }
+    }
 
-        // Store in local storage
-        Storage.set('lastReservation', {
-            ...data,
-            timestamp: new Date().toISOString()
+    setupReservationValidation() {
+        const inputs = this.reservationForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('change', () => this.validateField(input));
         });
+    }
 
-        // Show success message
-        this.showSuccessMessage();
-
-        // Reset form
-        this.form.reset();
-
-        // Send to server (uncomment when ready)
-        // this.sendToServer(data);
+    setupContactValidation() {
+        const inputs = this.contactForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => this.validateField(input));
+            input.addEventListener('change', () => this.validateField(input));
+        });
     }
 
     validateField(input) {
+        let isValid = true;
         const value = input.value.trim();
         const type = input.type;
         const name = input.name;
-        let isValid = true;
 
         // Required validation
         if (input.hasAttribute('required') && !value) {
@@ -81,16 +63,16 @@ class FormHandler {
         }
 
         // Email validation
-        if (type === 'email' && value && !validateEmail(value)) {
+        if (type === 'email' && value && !this.validateEmail(value)) {
             isValid = false;
         }
 
         // Phone validation
-        if (name === 'telefono' && value && !validatePhone(value)) {
+        if (name === 'telefono' && value && !this.validatePhone(value)) {
             isValid = false;
         }
 
-        // Date validation (must be future date)
+        // Date validation
         if (name === 'fecha' && value) {
             const selectedDate = new Date(value);
             const today = new Date();
@@ -100,105 +82,204 @@ class FormHandler {
             }
         }
 
-        // Update field styling
-        this.updateFieldStyle(input, isValid);
+        // Min length validation
+        if (input.hasAttribute('minlength')) {
+            const minLength = parseInt(input.getAttribute('minlength'));
+            if (value.length < minLength && value.length > 0) {
+                isValid = false;
+            }
+        }
 
+        this.updateFieldStyle(input, isValid);
         return isValid;
     }
 
+    validateEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    validatePhone(phone) {
+        const regex = /^[0-9\s\-\+\(\)]{9,}$/;
+        return regex.test(phone.replace(/\s/g, ''));
+    }
+
     updateFieldStyle(input, isValid) {
-        if (isValid) {
-            input.style.borderColor = 'var(--primary)';
+        if (isValid || input.value === '') {
+            input.style.borderColor = 'var(--border-light)';
         } else {
-            input.style.borderColor = '#cc0000';
+            input.style.borderColor = '#ff6b6b';
         }
     }
 
-    showSuccessMessage() {
-        this.form.style.display = 'none';
-        this.formSuccess.style.display = 'flex';
+    handleReservation(e) {
+        e.preventDefault();
 
-        // Auto-hide success message after 5 seconds
+        // Validate all fields
+        const inputs = this.reservationForm.querySelectorAll('input, select, textarea');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!this.validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            Logger.warn('Formulario de reserva no válido');
+            this.showFieldError('Por favor completa todos los campos correctamente');
+            return;
+        }
+
+        // Collect data
+        const formData = new FormData(this.reservationForm);
+        const data = Object.fromEntries(formData);
+
+        Logger.success('Reserva enviada', data);
+        Storage.set('lastReservation', { ...data, timestamp: new Date().toISOString() });
+
+        this.showSuccess(this.reservationForm, 'formSuccess');
+    }
+
+    handleContactForm(e) {
+        e.preventDefault();
+
+        // Validate all fields
+        const inputs = this.contactForm.querySelectorAll('input, select, textarea');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!this.validateField(input)) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            Logger.warn('Formulario de contacto no válido');
+            this.showFieldError('Por favor completa todos los campos correctamente');
+            return;
+        }
+
+        // Collect data
+        const formData = new FormData(this.contactForm);
+        const data = Object.fromEntries(formData);
+
+        Logger.success('Mensaje enviado', data);
+        Storage.set('lastMessage', { ...data, timestamp: new Date().toISOString() });
+
+        this.showSuccess(this.contactForm, 'contactFormSuccess');
+    }
+
+    handleNewsletter(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const input = form.querySelector('input[type="email"]');
+        const email = input.value.trim();
+
+        if (!this.validateEmail(email)) {
+            Logger.warn('Email inválido para newsletter');
+            input.style.borderColor = '#ff6b6b';
+            return;
+        }
+
+        Logger.success('Suscrito al newsletter', { email });
+        Storage.set('newsletter', { email, timestamp: new Date().toISOString() });
+
+        // Show success
+        const button = form.querySelector('button');
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="material-icons-round">check_circle</i><span>¡Suscrito!</span>';
+        button.style.background = '#00cc00';
+
+        // Reset
         setTimeout(() => {
-            this.resetForm();
+            form.reset();
+            button.innerHTML = originalText;
+            button.style.background = '';
+            input.style.borderColor = '';
+        }, 3000);
+    }
+
+    showSuccess(form, successElementId) {
+        const successElement = document.getElementById(successElementId);
+        form.style.display = 'none';
+        successElement.style.display = 'flex';
+
+        setTimeout(() => {
+            this.resetForm(form, successElementId);
         }, 5000);
     }
 
-    resetForm() {
-        this.form.style.display = 'block';
-        this.formSuccess.style.display = 'none';
-        this.form.reset();
+    resetForm(form, successElementId) {
+        const successElement = document.getElementById(successElementId);
+        form.style.display = 'block';
+        successElement.style.display = 'none';
+        form.reset();
     }
 
-    async sendToServer(data) {
-        try {
-            const response = await fetch('/api/reservations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
+    showFieldError(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+            animation: slideInRight 0.3s ease-out;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 4000);
+    }
+
+    setMinDate() {
+        const dateInput = document.getElementById('fecha');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        }
+    }
+
+    setupCharCounters() {
+        const mensaje = document.getElementById('mensaje');
+        const charCount = document.getElementById('charCount');
+        const contactMensaje = document.getElementById('contact-mensaje');
+        const contactCharCount = document.getElementById('contactCharCount');
+
+        if (mensaje && charCount) {
+            mensaje.addEventListener('input', () => {
+                charCount.textContent = mensaje.value.length;
             });
-
-            if (response.ok) {
-                Logger.success('Reserva enviada correctamente');
-            } else {
-                Logger.error('Error al enviar la reserva');
-            }
-        } catch (error) {
-            Logger.error('Error de conexión', error);
         }
-    }
-}
 
-// =============================================
-// DATE INPUT - MIN DATE (TODAY)
-// =============================================
-
-function setMinDate() {
-    const dateInput = document.getElementById('fecha');
-    if (dateInput) {
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-    }
-}
-
-// =============================================
-// SERVICE FILTER
-// =============================================
-
-class ServiceFilter {
-    constructor() {
-        this.filterBtns = document.querySelectorAll('.filter-btn');
-        this.serviceCards = document.querySelectorAll('.service-card');
-        if (this.filterBtns.length > 0) {
-            this.init();
+        if (contactMensaje && contactCharCount) {
+            contactMensaje.addEventListener('input', () => {
+                contactCharCount.textContent = contactMensaje.value.length;
+            });
         }
     }
 
-    init() {
-        this.filterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleFilter(e));
-        });
-    }
-
-    handleFilter(e) {
-        const filterValue = e.target.dataset.filter;
-
-        // Update active button
-        this.filterBtns.forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-
-        // Filter cards
-        this.serviceCards.forEach(card => {
-            const category = card.dataset.category;
-            
-            if (filterValue === 'all' || category.includes(filterValue)) {
-                card.style.display = '';
-                card.classList.add('fade-in-up');
-            } else {
-                card.style.display = 'none';
-            }
+    setupFAQ() {
+        this.faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                this.faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
         });
     }
 }
@@ -208,13 +289,20 @@ class ServiceFilter {
 // =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    new FormHandler();
-    new ServiceFilter();
-    setMinDate();
+    new AdvancedFormHandler();
 });
 
-// Expose resetForm globally
-function resetForm() {
-    const formHandler = new FormHandler();
-    formHandler.resetForm();
+// Global functions
+function resetReservationForm() {
+    const form = document.getElementById('reservationForm');
+    const success = document.getElementById('formSuccess');
+    const handler = new AdvancedFormHandler();
+    handler.resetForm(form, 'formSuccess');
+}
+
+function resetContactForm() {
+    const form = document.getElementById('contactForm');
+    const success = document.getElementById('contactFormSuccess');
+    const handler = new AdvancedFormHandler();
+    handler.resetForm(form, 'contactFormSuccess');
 }

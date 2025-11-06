@@ -3,134 +3,642 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BARBERÍA ÉLITE - Estilo. Precisión. Confianza.</title>
+    <meta name="description" content="BARBERÍA ÉLITE - Experiencia premium de barbería en Lima. Tradición, precisión y excelencia fusionadas en cada corte. Reserva tu cita ahora.">
+    <meta name="keywords" content="barbería lima, corte de cabello, afeitado tradicional, grooming premium, barberos profesionales, miraflores">
+    <meta name="author" content="BARBERÍA ÉLITE">
+    <meta name="theme-color" content="#d4af37">
+    
+    <title>BARBERÍA ÉLITE - Barbería Premium en Lima | Cortes Profesionales</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/styles-premium.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='900' fill='%23d4af37'>✂</text></svg>">
 </head>
 <body>
-    <!-- Header Navigation -->
+    
+    <!-- ============================================
+         🔴 PANTALLA DE CARGA - INTEGRADA
+         ============================================ -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <i class="material-icons-round">content_cut</i>
+            </div>
+            <h1 class="loading-brand">BARBERÍA ÉLITE</h1>
+            <div class="loader">
+                <div class="loader-bar"></div>
+            </div>
+            <p class="loading-text">Preparando tu experiencia premium...</p>
+            <div class="loading-percentage">
+                <span id="loadingPercent">0</span>%
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loadingPercent = document.getElementById('loadingPercent');
+        
+        if (!loadingScreen || !loadingPercent) return;
+        
+        let percent = 0;
+        const duration = 2500;
+        const steps = 50;
+        const increment = 100 / steps;
+        const interval = duration / steps;
+        
+        const timer = setInterval(() => {
+            percent += increment;
+            
+            if (percent >= 100) {
+                percent = 100;
+                loadingPercent.textContent = '100';
+                clearInterval(timer);
+                
+                setTimeout(() => {
+                    loadingScreen.classList.add('fade-out');
+                    
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        document.body.classList.remove('no-scroll');
+                    }, 400);
+                }, 300);
+            } else {
+                loadingPercent.textContent = Math.floor(percent);
+            }
+        }, interval);
+        
+        document.body.classList.add('no-scroll');
+    })();
+    </script>
+
+    <style>
+    /* CSS PARA LA PANTALLA DE CARGA */
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #0f0f0f 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.4s ease-out;
+    }
+
+    .loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .loading-container {
+        text-align: center;
+        max-width: 400px;
+        padding: 2rem;
+    }
+
+    .loading-logo {
+        font-size: 4rem;
+        color: #d4af37;
+        margin-bottom: 1.5rem;
+        animation: logoFloat 2s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+
+    @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    .loading-brand {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: 3px;
+        color: #ffffff;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #d4af37, #e5c158, #f4d767);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: brandPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes brandPulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.02); }
+    }
+
+    .loader {
+        position: relative;
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        margin-bottom: 2rem;
+        overflow: hidden;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .loader-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #d4af37 0%, #e5c158 50%, #f4d767 100%);
+        border-radius: 3px;
+        width: 0%;
+        animation: loading 2.5s ease-out forwards;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .loader-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation: shine 1.5s infinite;
+    }
+
+    @keyframes loading {
+        0% { width: 0%; }
+        100% { width: 100%; }
+    }
+
+    @keyframes shine {
+        0% { left: -100%; }
+        100% { left: 200%; }
+    }
+
+    .loading-text {
+        font-size: 1.1rem;
+        color: #b0b0b0;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        font-weight: 500;
+        animation: textFade 2s ease-in-out infinite;
+    }
+
+    @keyframes textFade {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+    }
+
+    .loading-percentage {
+        font-size: 3rem;
+        font-weight: 900;
+        color: #d4af37;
+        letter-spacing: 2px;
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        font-family: 'Manrope', sans-serif;
+    }
+
+    .loading-percentage span {
+        display: inline-block;
+        animation: numberPop 0.3s ease-out;
+    }
+
+    @keyframes numberPop {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+        .loading-container { padding: 1.5rem; }
+        .loading-logo { font-size: 3rem; }
+        .loading-brand { font-size: 1.5rem; }
+        .loading-text { font-size: 1rem; }
+        .loading-percentage { font-size: 2.5rem; }
+    }
+
+    @media (max-width: 480px) {
+        .loading-logo { font-size: 2.5rem; margin-bottom: 1rem; }
+        .loading-brand { font-size: 1.25rem; margin-bottom: 1.5rem; }
+        .loader { height: 5px; margin-bottom: 1.5rem; }
+        .loading-text { font-size: 0.9rem; margin-bottom: 1rem; }
+        .loading-percentage { font-size: 2rem; }
+    }
+    </style>
+
+    <!-- ============================================
+         HEADER NAVIGATION
+         ============================================ -->
     <header class="header" id="header">
         <div class="container">
             <nav class="navbar">
                 <div class="navbar-brand">
                     <div class="logo-icon">
-                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
-                        </svg>
+                        <i class="material-icons">sharp</i>
                     </div>
-                    <h2 class="brand-name">BARBERÍA ÉLITE</h2>
+                    <h1 class="brand-name">BARBERÍA ÉLITE</h1>
                 </div>
                 
-                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
                 </button>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="inicio.html" class="nav-link active" data-page="inicio">Inicio</a></li>
-                    <li><a href="Sobre-nosotros.html" class="nav-link" data-page="sobre">Sobre Nosotros</a></li>
-                    <li><a href="servicios.html" class="nav-link" data-page="servicios">Servicios</a></li>
-                    <li><a href="contacto.html" class="nav-link" data-page="contacto">Contacto</a></li>
-                    <li><a href="contacto.html#reservar" class="btn btn-primary">Reservar Cita</a></li>
+                    <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li><a href="Sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+                    <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                    <li><a href="contacto.html#reservar" class="btn btn-primary btn-nav">
+                        <i class="material-icons-round">event_available</i><span>Reservar</span></a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main id="app-content">
-        <!-- El contenido se cargará dinámicamente -->
+    <main id="main-content">
+        <!-- ============================================
+             HERO SECTION
+             ============================================ -->
+        <section class="hero-section" id="inicio">
+            <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-overlay"></div>
+            
+            <div class="container">
+                <div class="hero-container">
+                    <div class="hero-content fade-in-up">
+                        <h2 class="hero-title">
+                            <span class="title-line">EL ARTE DE LA</span>
+                            <span class="title-line title-emphasis">BARBERÍA ÉLITE</span>
+                        </h2>
+                        
+                        <p class="hero-subtitle">
+                            <i class="material-icons-round">check_circle</i>
+                            <span>Tradición • Precisión • Excelencia</span>
+                        </p>
+                        
+                        <p class="hero-description">
+                            Experiencia premium donde la barbería clásica se fusiona con la vanguardia moderna. 
+                            Cada corte es una obra maestra, cada cliente es único. Desde 2010, transformamos estilos.
+                        </p>
+                        
+                        <div class="hero-buttons fade-in-up" data-delay="200">
+                            <a href="contacto.html#reservar" class="btn btn-primary btn-lg">
+                                <i class="material-icons">event_available</i><span>Reservar Cita Ahora</span>
+                            </a>
+                            <a href="servicios.html" class="btn btn-outline btn-lg">
+                                <i class="material-icons">shopping_bag</i><span>Ver Servicios</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-scroll">
+                        <p class="scroll-text">DESPLIZA</p>
+                        <div class="scroll-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             STATS SECTION
+             ============================================ -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card fade-in-up" data-delay="100">
+                        <div class="stat-icon-wrapper"><i class="material-icons-round">workspace_premium</i></div>
+                        <h3 class="stat-number" data-count="15">15+</h3>
+                        <p class="stat-label">Años de<br/>Experiencia</p>
+                    </div>
+
+                    <div class="stat-card fade-in-up" data-delay="200">
+                        <div class="stat-icon-wrapper"><i class="material-icons-round">groups</i></div>
+                        <h3 class="stat-number" data-count="5000">5000+</h3>
+                        <p class="stat-label">Clientes<br/>Satisfechos</p>
+                    </div>
+
+                    <div class="stat-card fade-in-up" data-delay="300">
+                        <div class="stat-icon-wrapper"><i class="material-icons-round">emoji_events</i></div>
+                        <h3 class="stat-number" data-count="8">8</h3>
+                        <p class="stat-label">Premios<br/>Ganados</p>
+                    </div>
+
+                    <div class="stat-card fade-in-up" data-delay="400">
+                        <div class="stat-icon-wrapper"><i class="material-icons-round">star</i></div>
+                        <h3 class="stat-number">4.9<span style="font-size: 0.8em;">★</span></h3>
+                        <p class="stat-label">Calificación<br/>Promedio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             FEATURED SERVICES
+             ============================================ -->
+        <section class="preview-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-label"><i class="material-icons-round">star</i><span>Servicios Destacados</span></span>
+                    <h2 class="section-title">Nuestras Ofertas Premium</h2>
+                    <p class="section-description">Selecciona los servicios que mejor se adapten a tu estilo</p>
+                </div>
+
+                <div class="services-preview-grid">
+                    <article class="service-preview-card fade-in-up">
+                        <div class="service-preview-image">
+                            <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop" alt="Corte Clásico" loading="lazy">
+                            <div class="service-preview-overlay">
+                                <a href="servicios.html" class="btn btn-white btn-sm"><i class="material-icons-round">arrow_forward</i><span>Ver Más</span></a>
+                            </div>
+                        </div>
+                        <div class="service-preview-content">
+                            <h3>Corte Clásico</h3>
+                            <p>Ejecución precisa de estilos clásicos con técnicas profesionales.</p>
+                            <span class="service-price">Desde S/. 30</span>
+                        </div>
+                    </article>
+
+                    <article class="service-preview-card fade-in-up" data-delay="100">
+                        <div class="service-preview-image">
+                            <img src="https://images.unsplash.com/photo-1622286346003-c96b5d53e2cb?w=600&h=400&fit=crop" alt="Afeitado" loading="lazy">
+                            <div class="service-preview-overlay">
+                                <a href="servicios.html" class="btn btn-white btn-sm"><i class="material-icons-round">arrow_forward</i><span>Ver Más</span></a>
+                            </div>
+                        </div>
+                        <div class="service-preview-content">
+                            <h3>Afeitado Tradicional</h3>
+                            <p>Ritual clásico de barbería con navaja de precisión y masaje.</p>
+                            <span class="service-price">Desde S/. 40</span>
+                        </div>
+                    </article>
+
+                    <article class="service-preview-card fade-in-up" data-delay="200">
+                        <div class="service-preview-image">
+                            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&h=400&fit=crop" alt="Combo Premium" loading="lazy">
+                            <div class="service-preview-overlay">
+                                <a href="servicios.html" class="btn btn-white btn-sm"><i class="material-icons-round">arrow_forward</i><span>Ver Más</span></a>
+                            </div>
+                        </div>
+                        <div class="service-preview-content">
+                            <h3>Combo Completo</h3>
+                            <p>La experiencia definitiva de grooming. Todo incluido.</p>
+                            <span class="service-price">S/. 70</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <a href="servicios.html" class="btn btn-primary btn-lg">
+                        <i class="material-icons">shopping_bag</i><span>Ver Todos los Servicios</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             WHY CHOOSE US
+             ============================================ -->
+        <section class="why-choose-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-label"><i class="material-icons-round">verified</i><span>Razones</span></span>
+                    <h2 class="section-title">¿Por Qué BARBERÍA ÉLITE?</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon"><i class="material-icons-round">person</i></div>
+                        <h3>Expertos Certificados</h3>
+                        <p>Maestros barberos con certificaciones internacionales y experiencia comprobada.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" data-delay="100">
+                        <div class="feature-icon"><i class="material-icons-round">diamond</i></div>
+                        <h3>Productos Premium</h3>
+                        <p>Solo utilizamos marcas de lujo reconocidas mundialmente para tus cuidados.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" data-delay="200">
+                        <div class="feature-icon"><i class="material-icons-round">favorite</i></div>
+                        <h3>Atención Personalizada</h3>
+                        <p>Cada cliente es único, adaptamos nuestros servicios a tu estilo.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" data-delay="300">
+                        <div class="feature-icon"><i class="material-icons-round">home</i></div>
+                        <h3>Ambiente Exclusivo</h3>
+                        <p>Espacio diseñado para tu comodidad y relajación total.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" data-delay="400">
+                        <div class="feature-icon"><i class="material-icons-round">schedule</i></div>
+                        <h3>Horarios Flexibles</h3>
+                        <p>Abierto de lunes a sábado con horario extendido para tu conveniencia.</p>
+                    </div>
+
+                    <div class="feature-card fade-in-up" data-delay="500">
+                        <div class="feature-icon"><i class="material-icons-round">card_giftcard</i></div>
+                        <h3>Ofertas Especiales</h3>
+                        <p>Descuentos, promociones y membresía VIP exclusivas para clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             TESTIMONIALS
+             ============================================ -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-label"><i class="material-icons-round">rate_review</i><span>Clientes</span></span>
+                    <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" alt="Cliente" loading="lazy">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4>Juan García</h4>
+                                <p>Cliente desde 2018</p>
+                                <div class="stars">
+                                    <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "La mejor barbería en Lima. Profesionalismo, calidad y atención impeccable. Siempre vuelvo porque sé que recibiré lo mejor."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card fade-in-up" data-delay="100">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&h=60&fit=crop" alt="Cliente" loading="lazy">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4>Carlos Morales</h4>
+                                <p>Cliente frecuente</p>
+                                <div class="stars">
+                                    <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Excelente experiencia. Carlos es un maestro en su oficio. El ambiente es premium y acogedor. Recomendado 100%."
+                        </p>
+                    </div>
+
+                    <div class="testimonial-card fade-in-up" data-delay="200">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=60&h=60&fit=crop" alt="Cliente" loading="lazy">
+                            </div>
+                            <div class="testimonial-meta">
+                                <h4>Roberto Sánchez</h4>
+                                <p>Cliente VIP</p>
+                                <div class="stars">
+                                    <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">
+                            "Superó todas mis expectativas. La membresía VIP vale cada sol. Servicio de lujo a precios justos."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CTA FINAL
+             ============================================ -->
+        <section class="cta-section">
+            <div class="cta-overlay"></div>
+            <div class="container">
+                <div class="cta-content text-center fade-in-up">
+                    <h2 class="cta-title">
+                        <i class="material-icons-round">celebration</i>
+                        Tu Mejor Look Te Espera
+                    </h2>
+                    <p class="cta-description">
+                        Únete a miles de clientes satisfechos y experimenta la diferencia
+                    </p>
+                    <a href="contacto.html#reservar" class="btn btn-white btn-lg">
+                        <span>Reservar Ahora</span>
+                        <i class="material-icons">arrow_forward</i>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <div class="logo-icon">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
-                            </svg>
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-section footer-brand-section">
+                        <div class="footer-brand">
+                            <div class="footer-logo-icon"><i class="material-icons-round">sharp</i></div>
+                            <h3>BARBERÍA ÉLITE</h3>
                         </div>
-                        <h3>BARBERÍA ÉLITE</h3>
+                        <p class="footer-tagline">Tradición y vanguardia fusionadas para crear el estilo perfecto.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon" title="Facebook"><i class="material-icons-round">facebook</i></a>
+                            <a href="#" class="social-icon" title="Instagram"><i class="material-icons-round">photo_camera</i></a>
+                            <a href="#" class="social-icon" title="TikTok"><i class="material-icons-round">play_circle</i></a>
+                        </div>
                     </div>
-                    <p class="footer-description">
-                        Tradición y vanguardia fusionadas para crear el estilo perfecto del caballero moderno.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <span class="material-symbols-outlined">facebook</span>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <span class="material-symbols-outlined">photo_camera</span>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="WhatsApp">
-                            <span class="material-symbols-outlined">chat</span>
-                        </a>
+
+                    <div class="footer-section">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="#inicio"><i class="material-icons">arrow_forward</i>Inicio</a></li>
+                            <li><a href="Sobre-nosotros.html"><i class="material-icons">arrow_forward</i>Sobre Nosotros</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Servicios</a></li>
+                            <li><a href="contacto.html"><i class="material-icons">arrow_forward</i>Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Servicios Populares</h4>
+                        <ul class="footer-links">
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Corte Clásico</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Afeitado Tradicional</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Diseño de Barba</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Combo Completo</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Contáctanos</h4>
+                        <div class="footer-contact">
+                            <p><i class="material-icons-round">location_on</i><span>Calle Principal 123<br/>Miraflores – Lima, Perú</span></p>
+                            <p><i class="material-icons-round">phone</i><a href="tel:+51999888777">(+51) 999 888 777</a></p>
+                            <p><i class="material-icons-round">email</i><a href="mailto:info@barberiaelite.pe">info@barberiaelite.pe</a></p>
+                        </div>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Horarios</h4>
+                        <div class="footer-hours">
+                            <p><i class="material-icons-round">schedule</i><span><strong>Lunes - Viernes:</strong><br/>9:00 AM - 9:00 PM</span></p>
+                            <p><i class="material-icons-round">calendar_today</i><span><strong>Sábado:</strong><br/>9:00 AM - 8:00 PM</span></p>
+                            <p class="closed"><i class="material-icons-round">do_not_disturb</i><span><strong>Domingo:</strong> Cerrado</span></p>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="inicio.html">Inicio</a></li>
-                        <li><a href="Sobre-nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Horarios</h4>
-                    <ul class="footer-info">
-                        <li>Lunes - Viernes: 9:00 AM - 9:00 PM</li>
-                        <li>Sábado: 9:00 AM - 8:00 PM</li>
-                        <li>Domingo: Cerrado</li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <ul class="footer-info">
-                        <li>
-                            <span class="material-symbols-outlined">location_on</span>
-                            Calle Principal 123, Miraflores – Lima
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">phone</span>
-                            999 888 777
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">mail</span>
-                            info@barberiaelite.pe
-                        </li>
-                    </ul>
+            <div class="footer-newsletter">
+                <div class="newsletter-content fade-in-up">
+                    <h3>Suscríbete a Nuestro Newsletter</h3>
+                    <p>Recibe ofertas exclusivas directamente en tu correo.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="newsletter-input-group">
+                            <input type="email" placeholder="Tu email aquí" required>
+                            <button type="submit" class="btn btn-primary"><i class="material-icons-round">send</i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2025 BARBERÍA ÉLITE. Todos los derechos reservados.</p>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 <strong>BARBERÍA ÉLITE</strong>. Todos los derechos reservados.</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
-        <span class="material-symbols-outlined">arrow_upward</span>
+        <i class="material-icons-round">arrow_upward</i>
     </button>
 
     <!-- Scripts -->
-    <script src="js/utils.js"></script>
-    <script src="js/navegacion.js"></script>
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/navegacion.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/main.js" defer></script>
+
 </body>
 </html>

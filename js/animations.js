@@ -135,6 +135,7 @@ class ScrollToTopButton {
             behavior: 'smooth'
         });
     }
+    
 }
 
 // =============================================
@@ -146,3 +147,4 @@ document.addEventListener('DOMContentLoaded', () => {
     new ParallaxEffect();
     new ScrollToTopButton();
 });
+

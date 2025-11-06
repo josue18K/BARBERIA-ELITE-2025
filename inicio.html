@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - BARBERÍA ÉLITE</title>
+    <meta name="description" content="BARBERÍA ÉLITE - Experiencia de lujo en barbería. Tradición y precisión en cada corte.">
+    <title>BARBERÍA ÉLITE - Estilo. Precisión. Confianza.</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round" rel="stylesheet">
+    
+    <!-- CSS Files -->
     <link rel="stylesheet" href="css/styles-premium.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
 </head>
 <body>
+
+
+    
     <!-- Header Navigation -->
     <header class="header" id="header">
         <div class="container">
             <nav class="navbar">
                 <div class="navbar-brand">
                     <div class="logo-icon">
-                        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                            <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
-                        </svg>
+                        <i class="material-icons">sharp</i>
                     </div>
                     <h2 class="brand-name">BARBERÍA ÉLITE</h2>
                 </div>
@@ -38,13 +46,16 @@
                     <li><a href="Sobre-nosotros.html" class="nav-link">Sobre Nosotros</a></li>
                     <li><a href="servicios.html" class="nav-link">Servicios</a></li>
                     <li><a href="contacto.html" class="nav-link">Contacto</a></li>
-                    <li><a href="contacto.html#reservar" class="btn btn-primary btn-nav">Reservar Cita</a></li>
+                    <li><a href="contacto.html#reservar" class="btn btn-primary btn-nav">
+                        <i class="material-icons-round">event_available</i>
+                        Reservar
+                    </a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section Mejorado -->
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-bg parallax" style="background-image: url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1920&h=1080&fit=crop');"></div>
@@ -55,17 +66,21 @@
                     <span class="title-line">BARBERÍA</span>
                     <span class="title-line title-emphasis">ÉLITE</span>
                 </h1>
-                <p class="hero-subtitle">Estilo. Precisión. Confianza.</p>
+                <p class="hero-subtitle">
+                    <i class="material-icons-round">auto_awesome</i>
+                    Estilo. Precisión. Confianza.
+                </p>
                 <p class="hero-description">
                     Donde la tradición clásica se encuentra con la innovación moderna. 
-                    Experimenta el arte del grooming excepcional.
+                    Experimenta el arte del grooming excepcional en cada sesión.
                 </p>
                 <div class="hero-buttons">
                     <a href="contacto.html#reservar" class="btn btn-primary btn-lg">
+                        <i class="material-icons">arrow_forward</i>
                         <span>Agendar Cita</span>
-                        <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                     <a href="servicios.html" class="btn btn-outline btn-lg">
+                        <i class="material-icons-round">shopping_bag</i>
                         <span>Ver Servicios</span>
                     </a>
                 </div>
@@ -78,29 +93,37 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section Mejorada -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card fade-in-up" data-delay="100">
-                    <span class="material-symbols-outlined stat-icon">workspace_premium</span>
+                    <div class="stat-icon-wrapper">
+                        <i class="material-icons-round">workspace_premium</i>
+                    </div>
                     <h3 class="stat-number" data-count="15">0</h3>
-                    <p class="stat-label">Años de Experiencia</p>
+                    <p class="stat-label">Años de<br/>Experiencia</p>
                 </div>
                 <div class="stat-card fade-in-up" data-delay="200">
-                    <span class="material-symbols-outlined stat-icon">groups</span>
+                    <div class="stat-icon-wrapper">
+                        <i class="material-icons-round">groups</i>
+                    </div>
                     <h3 class="stat-number" data-count="5000">0</h3>
-                    <p class="stat-label">Clientes Satisfechos</p>
+                    <p class="stat-label">Clientes<br/>Satisfechos</p>
                 </div>
                 <div class="stat-card fade-in-up" data-delay="300">
-                    <span class="material-symbols-outlined stat-icon">emoji_events</span>
+                    <div class="stat-icon-wrapper">
+                        <i class="material-icons-round">emoji_events</i>
+                    </div>
                     <h3 class="stat-number" data-count="8">0</h3>
-                    <p class="stat-label">Premios Ganados</p>
+                    <p class="stat-label">Premios<br/>Ganados</p>
                 </div>
                 <div class="stat-card fade-in-up" data-delay="400">
-                    <span class="material-symbols-outlined stat-icon">star</span>
+                    <div class="stat-icon-wrapper">
+                        <i class="material-icons-round">star</i>
+                    </div>
                     <h3 class="stat-number" data-count="4.9">0</h3>
-                    <p class="stat-label">Calificación Promedio</p>
+                    <p class="stat-label">Calificación<br/>Promedio</p>
                 </div>
             </div>
         </div>
@@ -110,7 +133,10 @@
     <section class="preview-section">
         <div class="container">
             <div class="section-header text-center">
-                <span class="section-label">Lo Que Hacemos Mejor</span>
+                <span class="section-label">
+                    <i class="material-icons-round">highlight</i>
+                    Lo Que Hacemos Mejor
+                </span>
                 <h2 class="section-title">Servicios Destacados</h2>
                 <p class="section-description">
                     Descubre la excelencia en cada servicio que ofrecemos
@@ -122,7 +148,10 @@
                     <div class="service-preview-image">
                         <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&h=400&fit=crop" alt="Corte Clásico">
                         <div class="service-preview-overlay">
-                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                            <a href="servicios.html" class="btn btn-white btn-sm">
+                                <i class="material-icons-round">arrow_forward</i>
+                                Ver Más
+                            </a>
                         </div>
                     </div>
                     <div class="service-preview-content">
@@ -136,7 +165,10 @@
                     <div class="service-preview-image">
                         <img src="https://images.unsplash.com/photo-1622286346003-c96b5d53e2cb?w=600&h=400&fit=crop" alt="Afeitado Tradicional">
                         <div class="service-preview-overlay">
-                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                            <a href="servicios.html" class="btn btn-white btn-sm">
+                                <i class="material-icons-round">arrow_forward</i>
+                                Ver Más
+                            </a>
                         </div>
                     </div>
                     <div class="service-preview-content">
@@ -150,7 +182,10 @@
                     <div class="service-preview-image">
                         <img src="https://images.unsplash.com/photo-1621607512214-68297480165e?w=600&h=400&fit=crop" alt="Corte Premium">
                         <div class="service-preview-overlay">
-                            <a href="servicios.html" class="btn btn-white btn-sm">Ver Más</a>
+                            <a href="servicios.html" class="btn btn-white btn-sm">
+                                <i class="material-icons-round">arrow_forward</i>
+                                Ver Más
+                            </a>
                         </div>
                     </div>
                     <div class="service-preview-content">
@@ -162,104 +197,330 @@
             </div>
 
             <div class="text-center mt-4">
-                <a href="servicios.html" class="btn btn-primary">Ver Todos los Servicios</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-overlay"></div>
-        <div class="container">
-            <div class="cta-content text-center fade-in-up">
-                <h2 class="cta-title">¿Listo Para Tu Mejor Look?</h2>
-                <p class="cta-description">
-                    Agenda tu cita hoy y experimenta la diferencia de un servicio de clase mundial
-                </p>
-                <a href="contacto.html#reservar" class="btn btn-white btn-lg">
-                    <span>Reservar Ahora</span>
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                <a href="servicios.html" class="btn btn-primary btn-lg">
+                    <i class="material-icons">storefront</i>
+                    <span>Ver Todos los Servicios</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Why Choose Us Section Mejorado -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">
+                    <i class="material-icons-round">check_circle</i>
+                    Ventajas Exclusivas
+                </span>
+                <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+                <p class="section-description">
+                    La experiencia que define al caballero moderno
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">content_cut</i>
+                    </div>
+                    <h3>Barberos Profesionales</h3>
+                    <p>Maestros del oficio con años de experiencia y pasión por la perfección en cada corte.</p>
+                </div>
+
+                <div class="feature-card fade-in-up" data-delay="100">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">spa</i>
+                    </div>
+                    <h3>Productos Premium</h3>
+                    <p>Utilizamos solo los mejores productos del mercado para cuidar tu cabello y barba.</p>
+                </div>
+
+                <div class="feature-card fade-in-up" data-delay="200">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">favorite</i>
+                    </div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Cada servicio se adapta a tu estilo, preferencias y tipo de cabello.</p>
+                </div>
+
+                <div class="feature-card fade-in-up" data-delay="300">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">chair_alt</i>
+                    </div>
+                    <h3>Ambiente Exclusivo</h3>
+                    <p>Un espacio diseñado para tu confort y relajación, donde cada detalle cuenta.</p>
+                </div>
+
+                <div class="feature-card fade-in-up" data-delay="400">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">calendar_today</i>
+                    </div>
+                    <h3>Citas Flexibles</h3>
+                    <p>Agenda fácilmente online y encuentra el horario perfecto para ti.</p>
+                </div>
+
+                <div class="feature-card fade-in-up" data-delay="500">
+                    <div class="feature-icon">
+                        <i class="material-icons-round">diamond</i>
+                    </div>
+                    <h3>Experiencia de Lujo</h3>
+                    <p>Más que un corte, una experiencia revitalizante de principio a fin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section NEW -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">
+                    <i class="material-icons-round">rate_review</i>
+                    Lo Que Dicen Nuestros Clientes
+                </span>
+                <h2 class="section-title">Testimonios</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Juan García">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4>Juan García</h4>
+                            <p>Cliente desde 2020</p>
+                            <div class="stars">
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Excelente atención y resultados impeccables. Carlos es un verdadero profesional y artista en su oficio. 
+                        Definitivamente la mejor barbería en la zona."
+                    </p>
+                </div>
+
+                <div class="testimonial-card fade-in-up" data-delay="100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Miguel Torres">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4>Miguel Torres</h4>
+                            <p>Cliente desde 2019</p>
+                            <div class="stars">
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Desde que descubrí BARBERÍA ÉLITE, no voy a otro lugar. El ambiente es relajante, los barberos son 
+                        expertos y los precios son justos para la calidad que ofrecen."
+                    </p>
+                </div>
+
+                <div class="testimonial-card fade-in-up" data-delay="200">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Javier Ruiz">
+                        </div>
+                        <div class="testimonial-meta">
+                            <h4>Javier Ruiz</h4>
+                            <p>Cliente desde 2021</p>
+                            <div class="stars">
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                                <i class="material-icons-round filled">star</i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">
+                        "Un lugar donde realmente se notan la dedicación y pasión. Cada detalle está cuidado. 
+                        Recomendado 100% para cualquiera que busque excelencia en barbería."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section Mejorado -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="cta-content text-center fade-in-up">
+                <h2 class="cta-title">
+                    <i class="material-icons-round">celebration</i>
+                    ¿Listo Para Tu Mejor Look?
+                </h2>
+                <p class="cta-description">
+                    Agenda tu cita hoy y experimenta la diferencia de un servicio de clase mundial
+                </p>
+                <a href="contacto.html#reservar" class="btn btn-white btn-lg">
+                    <span>Reservar Ahora</span>
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mejorado -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <div class="logo-icon">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"/>
-                            </svg>
+            <!-- Footer Main Content -->
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <!-- Brand Section -->
+                    <div class="footer-section footer-brand-section">
+                        <div class="footer-brand">
+                            <div class="footer-logo-icon">
+                                <i class="material-icons-round">sharp</i>
+                            </div>
+                            <h3>BARBERÍA ÉLITE</h3>
                         </div>
-                        <h3>BARBERÍA ÉLITE</h3>
+                        <p class="footer-tagline">
+                            Tradición y vanguardia fusionadas para crear el estilo perfecto del caballero moderno.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon" aria-label="Facebook" title="Facebook">
+                                <i class="material-icons-round">facebook</i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">
+                                <i class="material-icons-round">photo_camera</i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="WhatsApp" title="WhatsApp">
+                                <i class="material-icons-round">chat</i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter" title="Twitter">
+                                <i class="material-icons-round">share</i>
+                            </a>
+                        </div>
                     </div>
-                    <p class="footer-description">
-                        Tradición y vanguardia fusionadas para crear el estilo perfecto del caballero moderno.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <span class="material-symbols-outlined">facebook</span>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <span class="material-symbols-outlined">photo_camera</span>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="WhatsApp">
-                            <span class="material-symbols-outlined">chat</span>
-                        </a>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="footer-links">
+                            <li><a href="inicio.html"><i class="material-icons">arrow_forward</i>Inicio</a></li>
+                            <li><a href="Sobre-nosotros.html"><i class="material-icons">arrow_forward</i>Sobre Nosotros</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Servicios</a></li>
+                            <li><a href="contacto.html"><i class="material-icons">arrow_forward</i>Contacto</a></li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="inicio.html">Inicio</a></li>
-                        <li><a href="Sobre-nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="servicios.html">Servicios</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                    </ul>
-                </div>
+                    <!-- Services -->
+                    <div class="footer-section">
+                        <h4>Servicios Populares</h4>
+                        <ul class="footer-links">
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Corte Clásico</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Afeitado Tradicional</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Diseño de Barba</a></li>
+                            <li><a href="servicios.html"><i class="material-icons">arrow_forward</i>Combo Completo</a></li>
+                        </ul>
+                    </div>
 
-                <div class="footer-section">
-                    <h4>Horarios</h4>
-                    <ul class="footer-info">
-                        <li>Lunes - Viernes: 9:00 AM - 9:00 PM</li>
-                        <li>Sábado: 9:00 AM - 8:00 PM</li>
-                        <li>Domingo: Cerrado</li>
-                    </ul>
-                </div>
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h4>Contáctanos</h4>
+                        <div class="footer-contact">
+                            <p>
+                                <i class="material-icons-round">location_on</i>
+                                <span>Calle Principal 123<br/>Miraflores – Lima, Perú</span>
+                            </p>
+                            <p>
+                                <i class="material-icons-round">phone</i>
+                                <a href="tel:+51999888777">999 888 777</a>
+                            </p>
+                            <p>
+                                <i class="material-icons-round">email</i>
+                                <a href="mailto:info@barberiaelite.pe">info@barberiaelite.pe</a>
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <ul class="footer-info">
-                        <li>
-                            <span class="material-symbols-outlined">location_on</span>
-                            Calle Principal 123, Miraflores – Lima
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">phone</span>
-                            999 888 777
-                        </li>
-                        <li>
-                            <span class="material-symbols-outlined">mail</span>
-                            info@barberiaelite.pe
-                        </li>
-                    </ul>
+                    <!-- Hours -->
+                    <div class="footer-section">
+                        <h4>Horarios</h4>
+                        <div class="footer-hours">
+                            <p>
+                                <i class="material-icons-round">schedule</i>
+                                <span>
+                                    <strong>Lunes - Viernes:</strong><br/>
+                                    9:00 AM - 9:00 PM
+                                </span>
+                            </p>
+                            <p>
+                                <i class="material-icons-round">calendar_today</i>
+                                <span>
+                                    <strong>Sábado:</strong><br/>
+                                    9:00 AM - 8:00 PM
+                                </span>
+                            </p>
+                            <p class="closed">
+                                <i class="material-icons-round">do_not_disturb</i>
+                                <span><strong>Domingo:</strong> Cerrado</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+            <!-- Newsletter Section -->
+            <div class="footer-newsletter">
+                <div class="newsletter-content fade-in-up">
+                    <h3>Suscríbete a Nuestro Newsletter</h3>
+                    <p>Recibe ofertas exclusivas, consejos de grooming y novedades directamente en tu correo.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="newsletter-input-group">
+                            <input 
+                                type="email" 
+                                placeholder="Tu email" 
+                                required 
+                                aria-label="Email para newsletter"
+                            >
+                            <button type="submit" class="btn btn-primary">
+                                <i class="material-icons-round">send</i>
+                                <span class="btn-text">Suscribir</span>
+                            </button>
+                        </div>
+                        <p class="form-note">Nunca compartiremos tu email. Puedes cancelar en cualquier momento.</p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2025 BARBERÍA ÉLITE. Todos los derechos reservados.</p>
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 <strong>BARBERÍA ÉLITE</strong>. Todos los derechos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="#privacy">Política de Privacidad</a>
+                        <span class="divider">•</span>
+                        <a href="#terms">Términos de Servicio</a>
+                        <span class="divider">•</span>
+                        <a href="#cookies">Política de Cookies</a>
+                    </div>
+                </div>
+                <div class="footer-bottom-credit">
+                    <p>Diseño y Desarrollo con <i class="material-icons-round filled">favorite</i> para tu estilo</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
-        <span class="material-symbols-outlined">arrow_upward</span>
+        <i class="material-icons-round">arrow_upward</i>
     </button>
 
     <!-- Scripts -->
